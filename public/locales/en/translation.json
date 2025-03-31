@@ -1,0 +1,155 @@
+{
+  "locale": "en-US",
+  "nav": {
+    "services": "Services",
+    "work": "Our Work",
+    "contact": "Contact",
+    "language": "Language"
+  },
+  "hero": {
+    "title": "Professional Chemical Cleaning Services",
+    "subtitle": "Expert solutions for your toughest cleaning challenges",
+    "cta": "Get Started"
+  },
+  "services": {
+    "title": "Our Services",
+    "description": "We offer a comprehensive range of chemical cleaning solutions",
+    "items": {
+      "repairs": {
+        "title": "General Repairs",
+        "description": "Comprehensive repair services for your home maintenance needs"
+      },
+      "plumbing": {
+        "title": "Plumbing & Electrical",
+        "description": "Expert solutions for all your plumbing and electrical issues"
+      },
+      "furniture": {
+        "title": "Furniture Assembly",
+        "description": "Professional assembly of furniture and home accessories"
+      },
+      "painting": {
+        "title": "Interior & Exterior Painting",
+        "description": "Quality painting services for both indoor and outdoor spaces"
+      },
+      "drywall": {
+        "title": "Drywall Repair",
+        "description": "Expert drywall installation, repair, and finishing services"
+      },
+      "appliances": {
+        "title": "Appliance Installation",
+        "description": "Safe and efficient installation of home appliances"
+      },
+      "lighting": {
+        "title": "Light Fixture Installation",
+        "description": "Professional installation and repair of lighting fixtures"
+      },
+      "maintenance": {
+        "title": "Seasonal Maintenance",
+        "description": "Regular maintenance services to keep your home in top condition"
+      }
+    }
+  },
+  "gallery": {
+    "title": "Our Work",
+    "description": "See the difference our professional services can make",
+    "beforeImageAlt": "Before cleaning - {{title}}",
+    "afterImageAlt": "After cleaning - {{title}}",
+    "closeButton": "Close gallery",
+    "previousButton": "Previous image",
+    "nextButton": "Next image",
+    "toggleButton": "Toggle before/after view",
+    "viewBefore": "View Before",
+    "viewAfter": "View After",
+    "instructions": "Use arrow keys to navigate, spacebar to toggle before/after, Esc to close",
+    "items": {
+      "window-track": {
+        "title": "Window Track Cleaning",
+        "description": "Deep cleaning of window tracks to remove built-up dirt, debris, and added bird spikes"
+      }
+    }
+  },
+  "testimonials": {
+    "title": "What Our Clients Say",
+    "description": "Read reviews from our satisfied customers who have experienced our services",
+    "addReview": "Add Your Review",
+    "error": {
+      "fetch": "Failed to load reviews",
+      "submit": "Failed to submit review. Please try again."
+    },
+    "modal": {
+      "title": "Add Your Review",
+      "close": "Close"
+    },
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Enter your name",
+      "rating": "Rating",
+      "comment": "Comment",
+      "commentPlaceholder": "Share your experience...",
+      "submit": "Submit Review",
+      "submitting": "Submitting...",
+      "cancel": "Cancel"
+    }
+  },
+  "whyChoose": {
+    "title": "Why Choose Handy Hemi?",
+    "subtitle": "We provide exceptional service with a focus on quality, reliability, and customer satisfaction.",
+    "features": {
+      "onTime": {
+        "title": "On-Time Service",
+        "description": "We respect your time with punctual arrivals and efficient service."
+      },
+      "satisfaction": {
+        "title": "Satisfaction Guarantee",
+        "description": "100% satisfaction guaranteed on all our services and repairs."
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch with us for a free consultation",
+    "form": {
+      "title": "Send us a Message",
+      "description": "Fill out the form below and we'll get back to you as soon as possible",
+      "name": "Name",
+      "namePlaceholder": "Enter your name",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "phone": "Phone",
+      "phonePlaceholder": "Enter your phone number",
+      "message": "Message",
+      "messagePlaceholder": "Tell us about your needs...",
+      "submit": "Send Message",
+      "submitting": "Sending...",
+      "success": "Message Sent!",
+      "successMessage": "Thank you for contacting us. We'll get back to you soon.",
+      "close": "Close"
+    },
+    "whatsapp": {
+      "title": "Chat on WhatsApp",
+      "description": "For immediate assistance, chat with us on WhatsApp",
+      "button": "Start WhatsApp Chat"
+    },
+    "info": {
+      "callUs": "Call Us",
+      "emailUs": "Email Us",
+      "hours": "Business Hours"
+    }
+  },
+  "footer": {
+    "company": "ChemiCo",
+    "tagline": "Professional Chemical Cleaning Services",
+    "contact": {
+      "title": "Contact Info",
+      "email": "Email",
+      "phone": "Phone"
+    },
+    "followUs": "Follow Us",
+    "social": {
+      "facebook": "Follow us on Facebook",
+      "instagram": "Follow us on Instagram",
+      "whatsapp": "Contact us on WhatsApp"
+    },
+    "rights": "All rights reserved."
+  }
+} 
