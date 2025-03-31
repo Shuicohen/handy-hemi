@@ -5,12 +5,26 @@ services:
     buildCommand: cd backend && npm install && npm run build
     startCommand: cd backend && npm start
     envVars:
-      - key: DATABASE_URL
+      - key: PORT
+        value: 5000
+      - key: NODE_ENV
+        value: production
+      - key: DB_HOST
+        value: ep-tight-mud-a5gc91sf-pooler.us-east-2.aws.neon.tech
+      - key: DB_PORT
+        value: 5432
+      - key: DB_NAME
+        value: Handy-Chemi
+      - key: DB_USER
+        value: neondb_owner
+      - key: DB_PASSWORD
+        sync: false
+      - key: ADMIN_EMAIL
+        value: admin@chemico.com
+      - key: ADMIN_PASSWORD
         sync: false
       - key: JWT_SECRET
         sync: false
-      - key: NODE_ENV
-        value: production
 
   - type: web
     name: handyhemi-frontend
