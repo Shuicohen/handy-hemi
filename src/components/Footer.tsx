@@ -1,114 +1,64 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { FaFacebook, FaTwitter, FaInstagram, FaWhatsapp, FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock } from 'react-icons/fa'
-import { COMPANY_INFO, SOCIAL_LINKS } from '../constants/config'
-import { useTranslation } from 'react-i18next'
+import { FaWhatsapp } from 'react-icons/fa'
+import { COMPANY_INFO } from '../constants/config'
 
 const Footer: React.FC = () => {
-  const { t } = useTranslation()
-  const currentYear = new Date().getFullYear()
-
-  const handleWhatsAppClick = () => {
-    window.open(SOCIAL_LINKS.whatsapp, '_blank')
-  }
-
   return (
     <footer className="bg-navy-blue text-white py-12">
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Brand Area */}
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Company Info */}
           <div>
-            <h2 className="text-2xl font-bold mb-4">{COMPANY_INFO.name}</h2>
-            <p className="text-gray-300 mb-4">{COMPANY_INFO.tagline}</p>
-            <p className="text-gray-300 text-sm">{COMPANY_INFO.emergencyService}</p>
+            <h3 className="text-xl font-bold mb-4">{COMPANY_INFO.name}</h3>
+            <p className="text-gray-300">{COMPANY_INFO.description}</p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-xl font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="text-gray-300 hover:text-white transition-colors">
-                  Home
+                <Link to="/#services" className="text-gray-300 hover:text-white transition-colors">
+                  Services
                 </Link>
               </li>
               <li>
-                <a href="#services" className="text-gray-300 hover:text-white transition-colors">
-                  Services
-                </a>
+                <Link to="/#work" className="text-gray-300 hover:text-white transition-colors">
+                  Our Work
+                </Link>
               </li>
               <li>
-                <a href="#contact" className="text-gray-300 hover:text-white transition-colors">
+                <Link to="/#contact" className="text-gray-300 hover:text-white transition-colors">
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
-            <ul className="space-y-3 text-gray-300">
-              <li className="flex items-center space-x-2">
-                <FaPhone className="text-orange-500" />
-                <span>{COMPANY_INFO.phone}</span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <FaEnvelope className="text-orange-500" />
-                <span>{COMPANY_INFO.email}</span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <FaMapMarkerAlt className="text-orange-500" />
-                <span>{COMPANY_INFO.address}</span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <FaClock className="text-orange-500" />
-                <span>{COMPANY_INFO.businessHours}</span>
-              </li>
+            <h3 className="text-xl font-bold mb-4">Contact Us</h3>
+            <ul className="space-y-2 text-gray-300">
+              <li>{COMPANY_INFO.address}</li>
+              <li>{COMPANY_INFO.phone}</li>
+              <li>{COMPANY_INFO.email}</li>
+              <li>{COMPANY_INFO.businessHours}</li>
             </ul>
-          </div>
-
-          {/* Social Media */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Connect With Us</h3>
-            <div className="flex space-x-4">
-              <a
-                href={SOCIAL_LINKS.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white transition-colors"
-              >
-                <FaFacebook className="text-2xl" />
-              </a>
-              <a
-                href={SOCIAL_LINKS.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white transition-colors"
-              >
-                <FaInstagram className="text-2xl" />
-              </a>
-              <a
-                href={SOCIAL_LINKS.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white transition-colors"
-              >
-                <FaTwitter className="text-2xl" />
-              </a>
-              <button
-                onClick={handleWhatsAppClick}
-                className="text-gray-300 hover:text-white transition-colors"
-              >
-                <FaWhatsapp className="text-2xl" />
-              </button>
-            </div>
+            <a
+              href={`https://wa.me/${COMPANY_INFO.whatsapp}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center mt-4 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors"
+            >
+              <FaWhatsapp className="mr-2" />
+              WhatsApp Chat
+            </a>
           </div>
         </div>
 
-        {/* Copyright */}
         <div className="mt-8 pt-8 border-t border-gray-700 text-center text-gray-300">
-          <p>© {new Date().getFullYear()} {COMPANY_INFO.name}. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} {COMPANY_INFO.name}. All rights reserved.</p>
         </div>
       </div>
     </footer>

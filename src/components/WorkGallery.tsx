@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { FaArrowLeft, FaArrowRight, FaTimes, FaExchangeAlt } from 'react-icons/fa'
+import { FaTimes, FaExchangeAlt } from 'react-icons/fa'
 
 interface WorkItem {
   id: number

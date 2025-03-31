@@ -16,7 +16,7 @@ const contactFormSchema = z.object({
 type ContactFormData = z.infer<typeof contactFormSchema>
 
 const ContactForm: React.FC = () => {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const [submitError, setSubmitError] = useState<string | null>(null)
   const [showSuccessModal, setShowSuccessModal] = useState(false)
   

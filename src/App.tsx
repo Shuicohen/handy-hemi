@@ -1,9 +1,8 @@
 import React, { Suspense } from 'react'
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import Layout from './components/Layout'
 import LoadingSpinner from './components/LoadingSpinner'
-import Home from './pages/Home'
 import AdminDashboard from './pages/AdminDashboard'
 import AdminLogin from './pages/AdminLogin'
 
@@ -17,7 +16,7 @@ const App: React.FC = () => {
         <Suspense fallback={<LoadingSpinner />}>
           <Routes>
             <Route path="/" element={<Layout />}>
-              <Route index element={<Home />} />
+              <Route index element={<HomePage />} />
             </Route>
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin" element={<AdminDashboard />} />
