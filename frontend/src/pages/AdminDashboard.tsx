@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import api from '../config/api'
 
 interface Contact {
   id: number
@@ -57,17 +57,17 @@ const AdminDashboard: React.FC = () => {
       setError(null)
       const token = localStorage.getItem('token')
       
-      if (activeTab === 'contacts') {
-        const response = await axios.get<ApiResponse<Contact>>('http://localhost:5000/api/contact', {
+      const [contactsResponse, reviewsResponse] = await Promise.all([
+        api.get<ApiResponse<Contact>>('/contact', {
+          headers: { Authorization: `Bearer ${token}` }
+        }),
+        api.get<ApiResponse<Review>>('/reviews', {
           headers: { Authorization: `Bearer ${token}` }
         })
-        setContacts(response.data.data)
-      } else {
-        const response = await axios.get<ApiResponse<Review>>('http://localhost:5000/api/reviews', {
-          headers: { Authorization: `Bearer ${token}` }
-        })
-        setReviews(response.data.data)
-      }
+      ])
+
+      setContacts(contactsResponse.data.data)
+      setReviews(reviewsResponse.data.data)
     } catch (err) {
       if ((err as any).response?.status === 401) {
         localStorage.removeItem('token')
@@ -85,32 +85,22 @@ const AdminDashboard: React.FC = () => {
     fetchData()
   }, [activeTab])
 
-  const handleDelete = (type: Tab, id: number) => {
-    setItemToDelete({ type, id })
-    setDeleteModalOpen(true)
-  }
-
-  const confirmDelete = async () => {
+  const handleDelete = async () => {
     if (!itemToDelete) return
 
     try {
       const token = localStorage.getItem('token')
       const endpoint = itemToDelete.type === 'contacts' 
-        ? `http://localhost:5000/api/contact/${itemToDelete.id}`
-        : `http://localhost:5000/api/reviews/${itemToDelete.id}`
+        ? `/contact/${itemToDelete.id}`
+        : `/reviews/${itemToDelete.id}`
 
-      await axios.delete(endpoint, {
+      await api.delete(endpoint, {
         headers: { Authorization: `Bearer ${token}` }
       })
 
-      if (itemToDelete.type === 'contacts') {
-        setContacts(contacts.filter(c => c.id !== itemToDelete.id))
-      } else {
-        setReviews(reviews.filter(r => r.id !== itemToDelete.id))
-      }
-
+      // Refresh data after deletion
+      fetchData()
       setDeleteModalOpen(false)
-      setItemToDelete(null)
     } catch (err) {
       console.error('Error deleting item:', err)
       setError('Failed to delete item')
@@ -392,7 +382,8 @@ const AdminDashboard: React.FC = () => {
                         <button
                           onClick={(e) => {
                             e.stopPropagation()
-                            handleDelete(activeTab, item.id)
+                            setItemToDelete({ type: activeTab, id: item.id })
+                            setDeleteModalOpen(true)
                           }}
                           className="text-red-600 hover:text-red-900 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 rounded px-2 py-1 transition-colors"
                         >
@@ -423,7 +414,8 @@ const AdminDashboard: React.FC = () => {
                     <button
                       onClick={(e) => {
                         e.stopPropagation()
-                        handleDelete(activeTab, item.id)
+                        setItemToDelete({ type: activeTab, id: item.id })
+                        setDeleteModalOpen(true)
                       }}
                       className="text-red-600 hover:text-red-900 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 rounded px-2 py-1 text-sm transition-colors"
                     >
@@ -523,7 +515,7 @@ const AdminDashboard: React.FC = () => {
                   Cancel
                 </button>
                 <button
-                  onClick={confirmDelete}
+                  onClick={handleDelete}
                   className="w-full sm:w-auto px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors"
                 >
                   Delete

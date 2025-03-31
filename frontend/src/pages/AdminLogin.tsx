@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import api from '../config/api'
 
 interface LoginForm {
   email: string
@@ -24,17 +24,19 @@ const AdminLogin: React.FC = () => {
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setError(null)
+    setError('')
     setLoading(true)
 
     try {
-      const response = await axios.post<LoginResponse>('http://localhost:5000/api/auth/login', formData)
-      localStorage.setItem('token', response.data.token)
-      navigate('/admin')
-    } catch (err: any) {
-      setError(err.response?.data?.message || 'Login failed')
+      const response = await api.post<LoginResponse>('/auth/login', formData)
+      if (response.data.token) {
+        localStorage.setItem('token', response.data.token)
+        navigate('/admin/dashboard')
+      }
+    } catch (err) {
+      setError('Invalid credentials')
     } finally {
       setLoading(false)
     }
