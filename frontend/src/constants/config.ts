@@ -1,18 +1,15 @@
 export const COMPANY_INFO = {
   name: 'Handy Hemi',
-  email: 'contact@handyhemi.com',
+  email: 'kadoneh@gmail.com',
   phone: '055-972-5443',
-  address: '123 Business Ave, Suite 100, City, State 12345',
-  tagline: 'Your Trusted Partner in Chemical Solutions',
-  emergencyService: '24/7 Emergency Service Available',
+  address: 'Harish area',
+  tagline: 'Your Trusted Partner in Home Repairs',
   businessHours: 'Mon-Fri: 9:00 AM - 6:00 PM',
-  description: 'We provide professional chemical solutions and services for all your industrial and commercial needs.',
+  description: 'We provide professional handyman services for all your home repair and maintenance needs. From plumbing to electrical work, we handle it all with expertise and care.',
   whatsapp: '972559725443'
 }
 
 export const SOCIAL_LINKS = {
-  facebook: 'https://facebook.com/chemico',
-  twitter: 'https://twitter.com/chemico',
-  instagram: 'https://instagram.com/chemico',
+  facebook: 'https://www.facebook.com/share/1L619rvMh2/?mibextid=wwXIfr',
   whatsapp: 'https://wa.me/15551234567'
 } 
