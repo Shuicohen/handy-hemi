@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { FaStar } from 'react-icons/fa'
-import axios from 'axios'
+import api from '../config/api'
 
 interface Review {
   id: number
@@ -42,7 +42,7 @@ const Testimonials: React.FC = () => {
 
   const fetchReviews = async () => {
     try {
-      const response = await axios.get<ApiResponse>('http://localhost:5000/api/reviews')
+      const response = await api.get<ApiResponse>('/reviews')
       setReviews(response.data.data)
     } catch (err) {
       console.error('Error fetching reviews:', err)
@@ -52,14 +52,14 @@ const Testimonials: React.FC = () => {
     }
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
     setSubmitError(null)
 
     try {
-      const response = await axios.post<ApiPostResponse>('http://localhost:5000/api/reviews', formData)
-      if (response.data.success) {
+      const response = await api.post<ApiPostResponse>('/reviews', formData)
+      if (response.status === 201) {
         setFormData({ name: '', rating: 5, comment: '' })
         setIsModalOpen(false)
         // Fetch updated reviews

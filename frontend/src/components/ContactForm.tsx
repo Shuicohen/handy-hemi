@@ -5,6 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { FaWhatsapp, FaPhone, FaEnvelope, FaClock, FaCheckCircle } from 'react-icons/fa'
 import { COMPANY_INFO, SOCIAL_LINKS } from '../constants/config'
+import api from '../config/api'
 
 const contactFormSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -17,53 +18,37 @@ type ContactFormData = z.infer<typeof contactFormSchema>
 
 const ContactForm: React.FC = () => {
   const { t } = useTranslation()
-  const [submitError, setSubmitError] = useState<string | null>(null)
   const [showSuccessModal, setShowSuccessModal] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [error, setError] = useState<string | null>(null)
   
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors },
     reset
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema)
   })
 
   const onSubmit = async (data: ContactFormData) => {
+    setIsSubmitting(true)
+    setError(null)
     try {
-      setSubmitError(null)
-      const response = await fetch('http://localhost:5000/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify(data),
-      })
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({ message: 'Server error occurred' }))
-        throw new Error(errorData.message || `HTTP error! status: ${response.status}`)
+      const response = await api.post('/contact', data)
+      if (response.status === 201) {
+        setShowSuccessModal(true)
+        reset()
       }
-
-      const responseData = await response.json()
-      console.log('Success:', responseData)
-      reset()
-      setShowSuccessModal(true)
-      setTimeout(() => {
-        setShowSuccessModal(false)
-      }, 5000)
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error submitting form:', error)
-      if (error instanceof Error) {
-        if (error.message.includes('Failed to fetch')) {
-          setSubmitError('Unable to connect to the server. Please check if the server is running.')
-        } else {
-          setSubmitError(error.message)
-        }
+      if (error.message.includes('Network Error')) {
+        setError(t('contact.form.error.network'))
       } else {
-        setSubmitError('An unexpected error occurred. Please try again.')
+        setError(t('contact.form.error.submit'))
       }
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -218,9 +203,9 @@ const ContactForm: React.FC = () => {
               </button>
             </div>
 
-            {submitError && (
+            {error && (
               <div className="mt-4 p-4 bg-red-50 text-red-700 rounded-lg border border-red-100">
-                {submitError}
+                {error}
               </div>
             )}
           </form>
