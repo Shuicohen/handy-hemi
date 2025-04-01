@@ -33,19 +33,20 @@ const HeroSection: React.FC = () => {
           </div>
 
           {/* Image */}
-          <div className="flex-1 w-full max-w-lg lg:max-w-none flex justify-center items-center">
-            <div className="relative w-full h-auto rounded-lg overflow-hidden bg-white/10">
+          <div className="flex-1 w-full max-w-lg lg:max-w-none">
+            <div className="relative w-full rounded-lg overflow-hidden shadow-xl bg-white/5 p-4">
               <img
-                src="/hero-handy.jpeg"
-                alt={t('hero.title')}
-                className="w-full h-auto object-contain"
+                src="/handyman-tools.jpg"
+                alt={t('hero.imageAlt')}
+                className="w-full h-auto object-cover rounded-lg transform hover:scale-102 transition-transform duration-300"
+                style={{ maxHeight: '500px' }}
                 onError={(e) => {
                   const target = e.target as HTMLImageElement
                   target.style.display = 'none'
                   const parent = target.parentElement
                   if (parent) {
                     parent.innerHTML = `<span class="text-white/50 text-sm">${t('hero.imageAlt')}</span>`
-                    parent.className += ' flex items-center justify-center'
+                    parent.className += ' flex items-center justify-center min-h-[300px]'
                   }
                 }}
               />

@@ -14,39 +14,39 @@
   },
   "services": {
     "title": "Our Services",
-    "description": "We offer a comprehensive range of chemical cleaning solutions",
+    "description": "Hemi - The Handyman that does it all! Professional, reliable, and precise service for all your home and yard needs",
     "items": {
-      "repairs": {
-        "title": "General Repairs",
-        "description": "Comprehensive repair services for your home maintenance needs"
+      "windows": {
+        "title": "Windows",
+        "description": "Roller Blinds Repair, Window Screen Replacement, Curtain Installation, Replacement of jammed wheel on Sliding Glass Windows for a Smooth Action"
+      },
+      "doors": {
+        "title": "Doors",
+        "description": "Lock Repair and Replacement, Door Frame Repair, Replacement of jammed wheel on Sliding Glass Doors"
+      },
+      "waterSystems": {
+        "title": "Water Systems",
+        "description": "Leak Repair, Faucet Replacement in Kitchen and Bathroom, Boiler Repairs (Heater, Thermostat, or Flange Replacement), Cleaning Calcium Buildup In the Boiler, Calcium buildup reduction Filter Installation"
       },
       "plumbing": {
-        "title": "Plumbing & Electrical",
-        "description": "Expert solutions for all your plumbing and electrical issues"
+        "title": "Sewerage and Plumbing",
+        "description": "Unclogging Drains in Sinks and Showers, Resolving Toilet or Water Tank Issues, Pipe Repairs, In-Sink Garbage Disposal Installation"
       },
-      "furniture": {
-        "title": "Furniture Assembly",
-        "description": "Professional assembly of furniture and home accessories"
+      "installations": {
+        "title": "Different Installations",
+        "description": "Shelves, TVs, Curtains, Pictures, Ceiling Fans, and Lighting Fixtures. Screen Installation to Prevent the Entrance of Pigeons to Laundry Line"
       },
-      "painting": {
-        "title": "Interior & Exterior Painting",
-        "description": "Quality painting services for both indoor and outdoor spaces"
+      "outdoor": {
+        "title": "Yard/Balcony Work",
+        "description": "Shade Cloth Installation, Drip Irrigation System Installation, Pergola Repairs, Painting External Walls, Pressure Washing, and Simple Renovations"
       },
-      "drywall": {
-        "title": "Drywall Repair",
-        "description": "Expert drywall installation, repair, and finishing services"
+      "cleaning": {
+        "title": "Cleaning",
+        "description": "AC Unit Cleaning from Mold and Dust, Cleaning bird poop on window sill and installation of spikes to repel them from parking there"
       },
-      "appliances": {
-        "title": "Appliance Installation",
-        "description": "Safe and efficient installation of home appliances"
-      },
-      "lighting": {
-        "title": "Light Fixture Installation",
-        "description": "Professional installation and repair of lighting fixtures"
-      },
-      "maintenance": {
-        "title": "Seasonal Maintenance",
-        "description": "Regular maintenance services to keep your home in top condition"
+      "general": {
+        "title": "General Installations and Repairs",
+        "description": "General Installations and Repairs for the Home"
       }
     }
   },
@@ -65,32 +65,13 @@
     "items": {
       "window-track": {
         "title": "Window Track Cleaning",
-        "description": "Deep cleaning of window tracks to remove built-up dirt, debris, and added bird spikes"
+        "description": "Deep cleaning of window tracks to remove built-up dirt, debris, and installed bird spikes"
       }
     }
   },
   "testimonials": {
     "title": "What Our Clients Say",
-    "description": "Read reviews from our satisfied customers who have experienced our services",
-    "addReview": "Add Your Review",
-    "error": {
-      "fetch": "Failed to load reviews",
-      "submit": "Failed to submit review. Please try again."
-    },
-    "modal": {
-      "title": "Add Your Review",
-      "close": "Close"
-    },
-    "form": {
-      "name": "Name",
-      "namePlaceholder": "Enter your name",
-      "rating": "Rating",
-      "comment": "Comment",
-      "commentPlaceholder": "Share your experience...",
-      "submit": "Submit Review",
-      "submitting": "Submitting...",
-      "cancel": "Cancel"
-    }
+    "description": "Read reviews from our satisfied customers who have experienced our services"
   },
   "whyChoose": {
     "title": "Why Choose Handy Hemi?",
@@ -108,23 +89,10 @@
   },
   "contact": {
     "title": "Contact Us",
-    "subtitle": "Get in touch with us for a free consultation",
+    "subtitle": "Get in touch with us for a consultation",
     "form": {
-      "title": "Send us a Message",
-      "description": "Fill out the form below and we'll get back to you as soon as possible",
-      "name": "Name",
-      "namePlaceholder": "Enter your name",
-      "email": "Email",
-      "emailPlaceholder": "Enter your email",
-      "phone": "Phone",
-      "phonePlaceholder": "Enter your phone number",
-      "message": "Message",
-      "messagePlaceholder": "Tell us about your needs...",
-      "submit": "Send Message",
-      "submitting": "Sending...",
-      "success": "Message Sent!",
-      "successMessage": "Thank you for contacting us. We'll get back to you soon.",
-      "close": "Close"
+      "title": "Call or Email",
+      "description": "Reach out to us By Phone or Email"
     },
     "whatsapp": {
       "title": "Chat on WhatsApp",
@@ -138,8 +106,8 @@
     }
   },
   "footer": {
-    "company": "ChemiCo",
-    "tagline": "Professional Chemical Cleaning Services",
+    "company": "Handy Hemi",
+    "tagline": "Professional Handyman Services",
     "quickLinks": "Quick Links",
     "contact": {
       "title": "Contact Info",

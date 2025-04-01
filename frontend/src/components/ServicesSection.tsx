@@ -1,14 +1,16 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { 
-  FaWrench, 
-  FaTools, 
-  FaCouch, 
-  FaPaintRoller, 
-  FaHammer, 
-  FaPlug, 
-  FaLightbulb, 
-  FaCalendarAlt 
+  FaWindowMaximize,  // for windows
+  FaDoorClosed,      // for doors
+  FaFaucet,          // for water systems
+  FaToilet,          // for plumbing
+  FaTools,           // for installations
+  FaPaintRoller,     // for outdoor/balcony (painting walls)
+  FaWrench,          // for general repairs
+  FaWater,           // additional water icon
+  FaTint,            // additional water/pressure washing icon
+  FaSprayCan,        // for cleaning
 } from 'react-icons/fa'
 
 interface ServiceCardProps {
@@ -39,36 +41,36 @@ const ServicesSection: React.FC = () => {
   
   const services = [
     {
-      icon: <FaWrench />,
-      translationKey: "repairs"
+      icon: <FaWindowMaximize />,
+      translationKey: "windows"
     },
     {
-      icon: <FaTools />,
+      icon: <FaDoorClosed />,
+      translationKey: "doors"
+    },
+    {
+      icon: <div className="flex gap-2"><FaFaucet className="text-3xl" /><FaWater className="text-2xl" /></div>,
+      translationKey: "waterSystems"
+    },
+    {
+      icon: <FaToilet />,
       translationKey: "plumbing"
     },
     {
-      icon: <FaCouch />,
-      translationKey: "furniture"
+      icon: <FaTools />,
+      translationKey: "installations"
     },
     {
-      icon: <FaPaintRoller />,
-      translationKey: "painting"
+      icon: <div className="flex gap-2"><FaPaintRoller className="text-3xl" /><FaTint className="text-2xl" /></div>,
+      translationKey: "outdoor"
     },
     {
-      icon: <FaHammer />,
-      translationKey: "drywall"
+      icon: <FaSprayCan/>,
+      translationKey: "cleaning"
     },
     {
-      icon: <FaPlug />,
-      translationKey: "appliances"
-    },
-    {
-      icon: <FaLightbulb />,
-      translationKey: "lighting"
-    },
-    {
-      icon: <FaCalendarAlt />,
-      translationKey: "maintenance"
+      icon: <FaWrench />,
+      translationKey: "general"
     }
   ]
 
