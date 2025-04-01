@@ -10,7 +10,7 @@ export const COMPANY_INFO = {
     en: 'Your Trusted Partner in Home Repairs',
     he: 'השותף המהימן שלך לתיקוני בית'
   },
-  businessHours: 'Mon-Fri: 9:00 AM - 6:00 PM',
+  businessHours: 'Sun-Fri',
   description: {
     en: 'We provide handyman services for all your home repair and maintenance needs. From plumbing to electrical work, we handle it all with expertise and care.',
     he: 'אנחנו מספקים שירותי תחזוקה ותיקונים לכל צרכי הבית שלך. מאינסטלציה ועד עבודות חשמל, אנחנו מטפלים בהכל במקצועיות ובאכפתיות.'
@@ -20,5 +20,8 @@ export const COMPANY_INFO = {
 
 export const SOCIAL_LINKS = {
   facebook: 'https://www.facebook.com/share/1L619rvMh2/?mibextid=wwXIfr',
-  whatsapp: 'https://wa.me/972559725443'
+  whatsapp: {
+    en: 'https://wa.me/972559725443?text=I\'m%20interested%20in%20hearing%20about%20your%20handyman%20services',
+    he: 'https://wa.me/972559725443?text=אני%20מעוניין%20לשמוע%20עוד%20על%20שירותי%20ההנדימן%20שאתה%20מציע'
+  }
 } 

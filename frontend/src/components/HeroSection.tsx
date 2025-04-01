@@ -13,11 +13,11 @@ const HeroSection: React.FC = () => {
   }
 
   return (
-    <section className="w-full bg-navy-blue">
+    <section className="w-full bg-navy-blue -mt-1">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row items-center py-12 sm:py-16 lg:py-24 gap-8 lg:gap-12">
+        <div className="flex flex-col lg:flex-row items-center py-4 sm:py-6 lg:py-8 gap-6 lg:gap-8">
           {/* Text content */}
-          <div className="flex-1 text-center lg:text-start">
+          <div className="flex-1 text-center lg:text-start pt-2">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
               {t('hero.title')}
             </h1>

@@ -22,14 +22,14 @@ const Header: React.FC = () => {
   }
 
   return (
-    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-sm border-b border-gray-100">
+    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-sm">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-14">
           <Link to="/" className="flex items-center group" aria-label={COMPANY_INFO.name}>
             <img 
               src="/logo.jpg" 
               alt={COMPANY_INFO.name} 
-              className="h-14 w-auto transition-transform duration-300 group-hover:scale-105"
+              className="h-10 w-auto transition-transform duration-300 group-hover:scale-105"
             />
             <span className="ml-3 text-2xl font-bold text-navy-blue tracking-wide transition-transform duration-300 group-hover:scale-105">
               {COMPANY_INFO.name}
@@ -74,8 +74,8 @@ const Header: React.FC = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4">
-            <div className="flex flex-col space-y-4">
+          <div className="md:hidden py-3">
+            <div className="flex flex-col space-y-3">
               <button
                 onClick={() => scrollToSection('services')}
                 className="nav-link text-left"
@@ -97,7 +97,7 @@ const Header: React.FC = () => {
               >
                 {t('nav.contact')}
               </button>
-              <div className="pt-2">
+              <div className="pt-1">
                 <LanguageSwitcher />
               </div>
             </div>

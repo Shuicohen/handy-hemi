@@ -1,11 +1,15 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { FaWhatsapp } from 'react-icons/fa'
-import { COMPANY_INFO } from '../constants/config'
+import { COMPANY_INFO, SOCIAL_LINKS } from '../constants/config'
 
 const Footer: React.FC = () => {
   const { t, i18n } = useTranslation()
   const currentLang = i18n.language.startsWith('he') ? 'he' : 'en'
+
+  const handleWhatsAppClick = () => {
+    window.open(SOCIAL_LINKS.whatsapp[currentLang], '_blank')
+  }
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
@@ -72,15 +76,13 @@ const Footer: React.FC = () => {
               <li>{COMPANY_INFO.email}</li>
               <li>{COMPANY_INFO.businessHours}</li>
             </ul>
-            <a
-              href={`https://wa.me/${COMPANY_INFO.whatsapp}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center mt-4 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors"
-            >
-              <FaWhatsapp className="mr-2" />
-              {t('contact.whatsapp.button')}
-            </a>
+            <button
+                onClick={handleWhatsAppClick}
+                className="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-all duration-200 flex items-center justify-center space-x-2 rtl:space-x-reverse mx-auto transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+              >
+                <FaWhatsapp className="text-xl" />
+                <span>{t('contact.whatsapp.button')}</span>
+              </button>
           </div>
         </div>
 

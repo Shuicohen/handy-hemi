@@ -1,18 +1,14 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-
 import { FaWhatsapp, FaPhone, FaEnvelope, FaClock } from 'react-icons/fa'
 import { COMPANY_INFO, SOCIAL_LINKS } from '../constants/config'
 
-
-
-
-
 const ContactForm: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
 
   const handleWhatsAppClick = () => {
-    window.open(SOCIAL_LINKS.whatsapp, '_blank')
+    const currentLang = i18n.language.startsWith('he') ? 'he' : 'en'
+    window.open(SOCIAL_LINKS.whatsapp[currentLang], '_blank')
   }
 
   return (
