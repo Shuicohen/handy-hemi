@@ -84,55 +84,57 @@ const WorkGallery: React.FC = () => {
   return (
     <section id="work" className="py-16 bg-gray-50" dir="auto">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-8">{t('gallery.title')}</h2>
-        <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-          {t('gallery.description')}
-        </p>
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-8">{t('gallery.title')}</h2>
+          <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+            {t('gallery.description')}
+          </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {workItems.map((item, index) => (
-            <div
-              key={item.id}
-              className="group bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow overflow-hidden cursor-pointer"
-              onClick={() => handleItemClick(item, index)}
-            >
-              <div className="relative aspect-[4/3]">
-                {/* After Image (Bottom Layer) */}
-                <div className="absolute inset-0 z-10">
-                  <img
-                    src={item.afterImage}
-                    alt={t('gallery.afterImageAlt', { title: t(`gallery.items.${item.translationKey}.title`) })}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute bottom-4 end-4 bg-black bg-opacity-75 text-white px-3 py-1 rounded-md text-sm font-medium">
-                    {t('gallery.viewAfter')}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
+            {workItems.map((item, index) => (
+              <div
+                key={item.id}
+                className="group bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow overflow-hidden cursor-pointer w-full max-w-md"
+                onClick={() => handleItemClick(item, index)}
+              >
+                <div className="relative aspect-[4/3]">
+                  {/* After Image (Bottom Layer) */}
+                  <div className="absolute inset-0 z-10">
+                    <img
+                      src={item.afterImage}
+                      alt={t('gallery.afterImageAlt', { title: t(`gallery.items.${item.translationKey}.title`) })}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute bottom-4 end-4 bg-black bg-opacity-75 text-white px-3 py-1 rounded-md text-sm font-medium">
+                      {t('gallery.viewAfter')}
+                    </div>
+                  </div>
+                  
+                  {/* Before Image (Top Layer) */}
+                  <div 
+                    className="absolute inset-0 z-20 transition-opacity duration-300 ease-in-out opacity-100 group-hover:opacity-0"
+                  >
+                    <img
+                      src={item.beforeImage}
+                      alt={t('gallery.beforeImageAlt', { title: t(`gallery.items.${item.translationKey}.title`) })}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute bottom-4 start-4 bg-black bg-opacity-75 text-white px-3 py-1 rounded-md text-sm font-medium">
+                      {t('gallery.viewBefore')}
+                    </div>
                   </div>
                 </div>
-                
-                {/* Before Image (Top Layer) */}
-                <div 
-                  className="absolute inset-0 z-20 transition-opacity duration-300 ease-in-out opacity-100 group-hover:opacity-0"
-                >
-                  <img
-                    src={item.beforeImage}
-                    alt={t('gallery.beforeImageAlt', { title: t(`gallery.items.${item.translationKey}.title`) })}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute bottom-4 start-4 bg-black bg-opacity-75 text-white px-3 py-1 rounded-md text-sm font-medium">
-                    {t('gallery.viewBefore')}
-                  </div>
+                <div className="p-4">
+                  <h3 className="text-xl font-semibold mb-2">
+                    {t(`gallery.items.${item.translationKey}.title`)}
+                  </h3>
+                  <p className="text-gray-600 line-clamp-2">
+                    {t(`gallery.items.${item.translationKey}.description`)}
+                  </p>
                 </div>
               </div>
-              <div className="p-4">
-                <h3 className="text-xl font-semibold mb-2">
-                  {t(`gallery.items.${item.translationKey}.title`)}
-                </h3>
-                <p className="text-gray-600 line-clamp-2">
-                  {t(`gallery.items.${item.translationKey}.description`)}
-                </p>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         {selectedWork && (

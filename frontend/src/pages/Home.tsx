@@ -29,8 +29,8 @@ const Home: React.FC = () => {
         <HeroSection />
         <WhyChoose />
         <ServicesSection />
-        <Testimonials />
         <WorkGallery />
+        <Testimonials />
         <ContactForm />
       </div>
     </>

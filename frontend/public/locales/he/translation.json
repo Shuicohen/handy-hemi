@@ -3,6 +3,7 @@
   "nav": {
     "services": "שירותים",
     "work": "העבודות שלנו",
+    "reviews": "חוות דעת",
     "contact": "צור קשר",
     "language": "שפה"
   },
@@ -125,6 +126,7 @@
   "footer": {
     "company": "ChemiCo",
     "tagline": "שירותי ניקוי כימי מקצועיים",
+    "quickLinks": "קישורים מהירים",
     "contact": {
       "title": "פרטי התקשרות",
       "email": "דוא\"ל",

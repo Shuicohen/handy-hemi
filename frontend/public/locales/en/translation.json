@@ -3,6 +3,7 @@
   "nav": {
     "services": "Services",
     "work": "Our Work",
+    "reviews": "Reviews",
     "contact": "Contact",
     "language": "Language"
   },
@@ -139,6 +140,7 @@
   "footer": {
     "company": "ChemiCo",
     "tagline": "Professional Chemical Cleaning Services",
+    "quickLinks": "Quick Links",
     "contact": {
       "title": "Contact Info",
       "email": "Email",

@@ -32,7 +32,7 @@ const Header: React.FC = () => {
               className="h-14 w-auto transition-transform duration-300 group-hover:scale-105"
             />
             <span className="ml-3 text-2xl font-bold text-navy-blue tracking-wide transition-transform duration-300 group-hover:scale-105">
-              Handy Hemi
+              {COMPANY_INFO.name}
             </span>
           </Link>
 
@@ -44,6 +44,13 @@ const Header: React.FC = () => {
               aria-label={t('nav.services')}
             >
               {t('nav.services')}
+            </button>
+            <button
+              onClick={() => scrollToSection('testimonials')}
+              className="nav-link"
+              aria-label={t('nav.reviews')}
+            >
+              {t('nav.reviews')}
             </button>
             <button
               onClick={() => scrollToSection('contact')}
@@ -75,6 +82,13 @@ const Header: React.FC = () => {
                 aria-label={t('nav.services')}
               >
                 {t('nav.services')}
+              </button>
+              <button
+                onClick={() => scrollToSection('testimonials')}
+                className="nav-link text-left"
+                aria-label={t('nav.reviews')}
+              >
+                {t('nav.reviews')}
               </button>
               <button
                 onClick={() => scrollToSection('contact')}

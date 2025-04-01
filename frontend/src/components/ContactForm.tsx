@@ -1,56 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { z } from 'zod'
-import { FaWhatsapp, FaPhone, FaEnvelope, FaClock, FaCheckCircle } from 'react-icons/fa'
+
+import { FaWhatsapp, FaPhone, FaEnvelope, FaClock } from 'react-icons/fa'
 import { COMPANY_INFO, SOCIAL_LINKS } from '../constants/config'
-import api from '../config/api'
 
-const contactFormSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters'),
-  email: z.string().email('Please enter a valid email address'),
-  phone: z.string().optional(),
-  message: z.string().min(10, 'Please provide more details about the service needed')
-})
 
-type ContactFormData = z.infer<typeof contactFormSchema>
+
+
 
 const ContactForm: React.FC = () => {
   const { t } = useTranslation()
-  const [showSuccessModal, setShowSuccessModal] = useState(false)
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [error, setError] = useState<string | null>(null)
-  
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset
-  } = useForm<ContactFormData>({
-    resolver: zodResolver(contactFormSchema)
-  })
-
-  const onSubmit = async (data: ContactFormData) => {
-    setIsSubmitting(true)
-    setError(null)
-    try {
-      const response = await api.post('/contact', data)
-      if (response.status === 201) {
-        setShowSuccessModal(true)
-        reset()
-      }
-    } catch (error: any) {
-      console.error('Error submitting form:', error)
-      if (error.message.includes('Network Error')) {
-        setError(t('contact.form.error.network'))
-      } else {
-        setError(t('contact.form.error.submit'))
-      }
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
 
   const handleWhatsAppClick = () => {
     window.open(SOCIAL_LINKS.whatsapp, '_blank')
@@ -124,115 +83,6 @@ const ContactForm: React.FC = () => {
               </div>
             </div>
           </div>
-
-          <form onSubmit={handleSubmit(onSubmit)} className="bg-white p-6 sm:p-8 rounded-xl shadow-lg">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-1">
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                  {t('contact.form.name')} *
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  {...register('name')}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
-                  placeholder={t('contact.form.namePlaceholder')}
-                  dir="auto"
-                />
-                {errors.name && (
-                  <p className="text-sm text-red-600">{errors.name.message}</p>
-                )}
-              </div>
-
-              <div className="space-y-1">
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                  {t('contact.form.email')} *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  {...register('email')}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
-                  placeholder={t('contact.form.emailPlaceholder')}
-                  dir="ltr"
-                />
-                {errors.email && (
-                  <p className="text-sm text-red-600">{errors.email.message}</p>
-                )}
-              </div>
-
-              <div className="space-y-1">
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
-                  {t('contact.form.phone')}
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  {...register('phone')}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
-                  placeholder={t('contact.form.phonePlaceholder')}
-                  dir="ltr"
-                />
-              </div>
-
-              <div className="md:col-span-2 space-y-1">
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700">
-                  {t('contact.form.message')} *
-                </label>
-                <textarea
-                  id="message"
-                  rows={4}
-                  {...register('message')}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors resize-y min-h-[100px]"
-                  placeholder={t('contact.form.messagePlaceholder')}
-                  dir="auto"
-                />
-                {errors.message && (
-                  <p className="text-sm text-red-600">{errors.message.message}</p>
-                )}
-              </div>
-            </div>
-
-            <div className="mt-8">
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
-              >
-                {isSubmitting ? t('contact.form.submitting') : t('contact.form.submit')}
-              </button>
-            </div>
-
-            {error && (
-              <div className="mt-4 p-4 bg-red-50 text-red-700 rounded-lg border border-red-100">
-                {error}
-              </div>
-            )}
-          </form>
-
-          {/* Success Modal */}
-          {showSuccessModal && (
-            <div className="fixed inset-0 flex items-center justify-center z-50 px-4" dir="auto">
-              <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={() => setShowSuccessModal(false)} />
-              <div className="bg-white rounded-xl p-6 sm:p-8 shadow-xl relative max-w-md w-full mx-4 transform transition-all">
-                <div className="text-center">
-                  <FaCheckCircle className="text-green-500 text-4xl sm:text-5xl mx-auto mb-4" />
-                  <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-2">
-                    {t('contact.form.success')}
-                  </h3>
-                  <p className="text-gray-600 mb-6">
-                    {t('contact.form.successMessage')}
-                  </p>
-                  <button
-                    onClick={() => setShowSuccessModal(false)}
-                    className="bg-gray-100 text-gray-700 px-6 py-2 rounded-lg hover:bg-gray-200 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-300"
-                  >
-                    {t('contact.form.close')}
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
         </div>
       </div>
     </section>
