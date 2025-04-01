@@ -8,9 +8,9 @@
     "language": "Language"
   },
   "hero": {
-    "title": " Handyman Services",
-    "subtitle": "Expert solutions for your toughest home repair needs",
-    "cta": "Get Started"
+    "title": "Your Trusted Handyman for Every Home Need",
+    "subtitle": "From window repairs to plumbing solutions, we're your one-stop service for all home maintenance needs. Professional, reliable, and available when you need us. With years of experience, we ensure quality workmanship on every job.",
+    "cta": "Book Your Service Now"
   },
   "services": {
     "title": "Our Services",
@@ -71,7 +71,8 @@
   },
   "testimonials": {
     "title": "What Our Clients Say",
-    "description": "Read reviews from our satisfied customers who have experienced our services"
+    "description": "Read reviews from our satisfied customers who have experienced our services",
+    "addReview": "Add Your Review"
   },
   "whyChoose": {
     "title": "Why Choose Handy Hemi?",

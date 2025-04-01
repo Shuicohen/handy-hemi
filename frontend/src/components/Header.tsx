@@ -27,7 +27,7 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center group" aria-label={COMPANY_INFO.name}>
             <img 
-              src="/logo.png" 
+              src="/logo.jpg" 
               alt={COMPANY_INFO.name} 
               className="h-14 w-auto transition-transform duration-300 group-hover:scale-105"
             />
